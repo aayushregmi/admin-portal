@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 
 import config from './okta.config';
+import { RxTulookupComponent } from './rx-tulookup/rx-tulookup.component';
+import {HttpClientModule} from '@angular/common/http';
 
 const oktaConfig = Object.assign({
   onAuthRequired: ({oktaAuth, router}) => {
@@ -25,12 +27,14 @@ const oktaConfig = Object.assign({
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    LoginComponent
+    LoginComponent,
+    RxTulookupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OktaAuthModule
+    OktaAuthModule,
+    HttpClientModule
   ],
   providers: [
     {provide: OKTA_CONFIG, useValue: oktaConfig}
