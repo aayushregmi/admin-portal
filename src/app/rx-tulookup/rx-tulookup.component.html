@@ -1,0 +1,31 @@
+<table class="table table-grey-head">
+  <thead>
+    <tr>
+      <td>Response Override</td>
+      <td>Name</td>
+      <td>Gender</td>
+      <td>Zip</td>
+      <td>Script</td>
+      <td>Ignore Script Errors</td>
+      <td>Description</td>
+      <td>External ID</td>
+      <td>Payer ID</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of rxTulookups">
+      <td>{{item.responseOverride || '-'}}</td>
+      <td>{{getFullName(item)}}</td>
+      <td>{{getGenderValue(item.gender)}}</td>
+      <td>{{item.zip}}</td>
+      <td>{{item.script || '-'}}</td>
+      <td>{{item.ignoreScriptErrors}}</td>
+      <td>{{item.description || '-'}}</td>
+      <td>{{item.externalId || '-'}}</td>
+      <td>{{item.payerId}}</td>
+    </tr>
+    <tr *ngIf="isLoading">
+      <td colspan="9">Loading...</td>
+    </tr>
+  </tbody>
+</table>
